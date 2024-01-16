@@ -117,7 +117,7 @@ const levelSix = {
     "tr","br","lh","tl","bl","plus","br","tr","lv","bl","br","tr",
     "tl","plus","lh","br","boy","lv","bl","plus","br","school","br","tr",
     "lv","lv","lh","plus","tr","br","lh","tl","bl","plus","br","tr",
-    "br","tr","lv","bl","tr","plus","tr","br","lh","tl","br","tr",
+    "br","tr","lv","bl","tr","plus","tr","br","lh","lv","br","tr",
     "sandwich","plus","br","tr","lv","bl","tl","plus","tr","br","br","tr",
     "lv","bl","tl","plus","tr","br","lh","tl","bl","plus","br","tr",
   ],
