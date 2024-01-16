@@ -1,0 +1,243 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: sans-serif;
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  height: 100vh;
+  width: 100vw;
+}
+
+.maze {
+  display: grid;
+  align-content: center;
+  grid-template-columns: repeat(10, 1fr);
+  gap: 5px;
+  overflow: hidden;
+}
+.maze:before {
+  content: "";
+  position: absolute;
+  width: calc(200vh - 5px);
+  height: 100%;
+  background: linear-gradient(#000, #0f0, #000);
+  animation: animate 5s linear infinite;
+  opacity: 0.75;
+}
+@keyframes animate {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(100%);
+  }
+}
+.maze.stage-2 {
+  grid-template-columns: repeat(12, 1fr);
+}
+.Square {
+  background-color: #313131;
+  position: relative;
+  transition: all 0.3s;
+  cursor: pointer;
+  height: calc(100vh / 5 - 5px);
+  aspect-ratio: 1;
+}
+.maze.stage-2 .Square {
+  height: calc(100vh / 6 - 5px);
+}
+.Square.rotated {
+  /* border: solid 1px hsl(0, 0%, 50%); */
+  box-shadow: 2px 2px 0px hsl(0, 0%, 100%) inset, -2px -2px 0px hsl(0, 0%, 100%) inset;
+}
+.Square.not-rotated {
+  pointer-events: none;
+}
+.boy {
+  background-image: url(boy.png);
+  background-size: contain;
+  background-position: center;
+  pointer-events: none;
+}
+.school {
+  background-image: url(school.png);
+  background-size: contain;
+  background-position: center;
+  pointer-events: none;
+}
+.sandwich {
+  background-image: url(sandwich.png);
+  background-size: contain;
+  background-position: center;
+  pointer-events: none;
+}
+.plus::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 45%;
+  width: 10%;
+  height: 100%;
+  background-color: white;
+  /* z-index: 2; */
+}
+.plus::after {
+  content: "";
+  position: absolute;
+  top: 45%;
+  left: 0;
+  width: 100%;
+  height: 10%;
+  background-color: white;
+  /* z-index: 2; */
+}
+.lh::after {
+  content: "";
+  position: absolute;
+  top: 45%;
+  left: 0;
+  width: 100%;
+  height: 10%;
+  background-color: white;
+  /* z-index: 2; */
+}
+.lv::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 45%;
+  width: 10%;
+  height: 100%;
+  background-color: white;
+}
+
+.tr::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 45%;
+  width: 10%;
+  height: 55%;
+  background-color: white;
+}
+.tr::after {
+  content: "";
+  position: absolute;
+  top: 45%;
+  right: 0;
+  width: 55%;
+  height: 10%;
+  background-color: white;
+}
+
+.tl::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 45%;
+  width: 10%;
+  height: 55%;
+  background-color: white;
+}
+.tl::after {
+  content: "";
+  position: absolute;
+  top: 45%;
+  left: 0;
+  width: 55%;
+  height: 10%;
+  background-color: white;
+}
+
+.bl::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 45%;
+  width: 10%;
+  height: 55%;
+  background-color: white;
+}
+.bl::after {
+  content: "";
+  position: absolute;
+  bottom: 45%;
+  left: 0;
+  width: 55%;
+  height: 10%;
+  background-color: white;
+}
+
+.br::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 45%;
+  width: 10%;
+  height: 55%;
+  background-color: white;
+}
+.br::after {
+  content: "";
+  position: absolute;
+  bottom: 45%;
+  right: 0;
+  width: 55%;
+  height: 10%;
+  background-color: white;
+}
+
+.model {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(10px) saturate(100%);
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+}
+.model.win {
+  display: flex;
+  animation: opacity 0.5s 0.5s both;
+}
+
+@keyframes opacity {
+  to {
+    opacity: 1;
+  }
+}
+
+.model-box {
+  height: 400px;
+  width: 500px;
+  background-color: black;
+  color: white;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.next-level {
+  padding: 16px 32px;
+  background-color: #0f0;
+  color: black;
+  cursor: pointer;
+}
+.info {
+  text-align: center;
+}
